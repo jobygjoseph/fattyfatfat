@@ -1,0 +1,157 @@
+.jumbotron{
+  position:relative;
+  /*margin-top: 64px;*/
+  padding: 48px !important;
+  padding-left: 60px !important;
+  padding-right: 60px !important;
+  background-color:#058DC7;
+  color:white;
+}
+.jumbotron > h1 {
+  font-size:63px;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 60px;
+  /*background-color: #858585;
+  color:#fff;*/
+}
+
+.starter-template {
+  text-align:left;
+  padding-top:5px;
+  padding-bottom:20px;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container {
+  /*width:1000px !important;*/
+}
+
+#footer .container2 {
+  width: 100%;
+  max-width:100%;
+  text-align:center;
+  padding: 0 15px;
+  position: fixed;
+  bottom:0;
+  color:#fff;
+  font-weight:bold;
+  font-size: 22px;
+  background-color: #428bca;
+}
+#footer .container2 > p {
+  margin: 20px 0;
+}
+#footer .container2 > p > span{
+  /*color:#8bca42;*/
+ font-size:1.5em;
+}
+#footer .container2 .text-muted {
+  margin: 20px 0;
+}
+
+#playa_listings ul{
+  margin-top:50px;
+  list-style-type:none;
+  padding:0;
+}
+#playa_listings ul li{
+  margin-top:50px;
+  list-style-type:none;
+  border-bottom:1px solid #efefef;
+  clear: both;
+  min-height: 450px;
+  position:relative;
+  -webkit-box-shadow: 0px 0px 55px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 55px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 55px -3px rgba(0, 0, 0, 0.75);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  padding-top:20px;
+  /*padding-bottom:20px;*/
+}
+#playa_listings ul li img {
+  float:left;
+  width:150px;
+  height:200px;
+  margin-right:20px;
+  margin-left:30px;
+}
+#playa_listings ul li div.playa-data > span {
+  display:block;
+  clear:right;
+  font-weight:bold;
+  font-size:20px;
+}
+
+#highchart-container {
+  width:100%;
+  height:400px;
+  margin-top:50px;
+}
+
+#highchart-container2 {
+  width:100%;
+  margin-top:50px;
+}
+
+.lead span{
+  display:block;
+  position:absolute;
+  top:0;
+  left:0;
+  font-size: 12px;
+  background-color:#ba0000;
+  color:#fff;
+  width:150px;
+}
+
+.red {
+  color:#cd0000;
+  font-weight:bold;
+}
+
+
+@media screen and (max-width: 710px) {
+  .jumbotron > h1 {
+    font-size:33px;
+  }
+  #footer .container2 {
+    font-size:14px;
+  }
+}
+
+.playa-data {
+  margin-bottom: 20px;
+  height: 200px;
+  clear: both;
+}
+.playa-chart {
+  clear:both;
+  width:100%;
+  margin:32px auto;
+}
