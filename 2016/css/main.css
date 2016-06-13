@@ -96,8 +96,8 @@ body {
 }
 #playa_listings ul li img {
   float:left;
-  width:150px;
-  height:200px;
+  width: 200px;
+  height: 200px;
   margin-right:20px;
   margin-left:30px;
 }
