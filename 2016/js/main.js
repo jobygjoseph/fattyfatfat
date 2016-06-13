@@ -108,7 +108,7 @@ $(function(){
   var parseIndividualData = function(columns){
     dateArray = columns[0].slice();
     dateArray.splice(0,1);
-    dateArray.unshift(1421712000000); // add Jan 20 - initial weigh in
+    //dateArray.unshift(1421712000000); // add Jan 20 - initial weigh in
     //console.log(columns);
     var tmpColumns = columns.slice();
     //columns.splice(0,1);
