@@ -45,7 +45,7 @@ $(function(){
 
     for(var fgt in playas){
       $('#playa_listings ul').append('<li>\
-        <div class="playa-data"><img src="img/biopics/'+playas[fgt].img+'" alt="" />\
+        <div class="playa-data"><img src="img/biopics/'+playas[fgt].img+'" alt="player" />\
         <span>'+playas[fgt].name+'</span>\
         <span> Has '+playas[fgt].points+' points so far</span>\
         <span> Started at '+playas[fgt].startweight+'lbs and is destined to be '+playas[fgt].goalweight+'lbs</span>\
