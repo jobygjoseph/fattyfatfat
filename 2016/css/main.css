@@ -43,7 +43,9 @@ body {
     font-size: 140px;
 }
 
-
+.jumbotron p {
+    text-align: left;
+}
 
 /* Set the fixed height of the footer here */
 #footer {
@@ -178,7 +180,9 @@ body {
     .jumbotron > h1 {
         font-size: 33px;
     }
-
+    .jumbotron > h1 > span{
+        font-size: 53px;
+    }
     #footer .container2 {
         font-size: 14px;
     }
