@@ -45,7 +45,7 @@ $(function(){
 
     for(var fgt in playas){
       $('#playa_listings ul').append('<li>\
-        <div class="playa-data"><img src="img/biopics/'+playas[fgt].img+'" alt="" />\
+        <div class="playa-data"><img src="img/biopics/'+playas[fgt].img+'" alt="player" />\
         <span>'+playas[fgt].name+'</span>\
         <span> Has '+playas[fgt].points+' points so far</span>\
         <span> Started at '+playas[fgt].startweight+'lbs and is destined to be '+playas[fgt].goalweight+'lbs</span>\
@@ -54,9 +54,8 @@ $(function(){
         </div>\
         <div class="playa-chart" id="'+fgt+'-chart"></div>\
         </li>');
-    };
-
-  }
+    }
+  };
 
 
   var buildIndividualCharts = function() {
@@ -101,8 +100,8 @@ $(function(){
             data: playaData[nm].weightdata
         }]
       });
-    };
-  }
+    }
+  };
 
 
   var parseIndividualData = function(columns){
@@ -126,7 +125,7 @@ $(function(){
       $.each(obj, function(inx,oj){
         if (0 == inx) return;
         if (undefined == oj) return false;
-        playaData[nm].currentweight = oj
+        playaData[nm].currentweight = oj;
         playaData[nm].weightdata.push(oj);
       });
     });
@@ -138,7 +137,7 @@ $(function(){
 
     //console.log(playaData);
 
-  }
+  };
 
     var generateMainChart = function() {
 
@@ -176,7 +175,7 @@ $(function(){
       },
 
     }); // $('highchart-container')
-  }
+  };
 
 
   // Get Player data

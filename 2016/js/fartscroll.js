@@ -56,9 +56,8 @@ var fartscroll = (function () {
 
     player.src = audio.prefix + audio.sound[position || rand];
     player.play();
-  };
-
-  function getAudioFor(player){
+  }
+    function getAudioFor(player){
     if(player.canPlayType("audio/mp3")) {
       return mp3;
     } else if(player.canPlayType("audio/ogg")) {
@@ -79,9 +78,8 @@ var fartscroll = (function () {
     player = document.createElement("audio");
     container.appendChild(player);
     return player;
-  };
-
-  function getContainer() {
+  }
+    function getContainer() {
     var container = document.getElementById("fartscroll");
 
     if (container === null) {
