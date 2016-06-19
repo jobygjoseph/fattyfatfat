@@ -20,6 +20,11 @@ $(function(){
   var playaData = [];
   var dateArray = [];
 
+  var convertToBMI = function(pounds, height) {
+    // BMI = ( Weight in Pounds / ( Height in inches x Height in inches ) ) x 703
+    return ((pounds / (height * height)) * 703).toFixed(2);
+  };
+
 
   var massageData = function(columns) {
     columns.splice(0,1);// remove the pushups column
@@ -37,8 +42,11 @@ $(function(){
         img: nm + '.jpg',
         name: obj[0].replace(/\*/g, ''),
         weightdata:[obj[2]],
-        currentweight: obj[2]
-      }
+        currentweight: obj[2],
+        startbmi: convertToBMI(obj[2], obj[18]),
+        currentbmi: convertToBMI(obj[2], obj[18]),
+        goalbmi: convertToBMI(obj[4], obj[18])
+      };
     });
 
     //console.log(playas);
@@ -48,9 +56,8 @@ $(function(){
         <div class="playa-data"><img src="img/biopics/'+playas[fgt].img+'" alt="player" />\
         <span>'+playas[fgt].name+'</span>\
         <span> Has '+playas[fgt].points+' points so far</span>\
-        <span> Started at '+playas[fgt].startweight+'lbs and is destined to be '+playas[fgt].goalweight+'lbs</span>\
-        <span> by losing '+playas[fgt].lossgoal+'lbs. </span>\
-        <span> Currently at <span id="'+fgt+'-currentweight"></span> for a total loss of <span id="'+fgt+'-weightlossed"></span>lbs </span>\
+        <span> Started at '+playas[fgt].startbmi+' BMI and is destined to be '+playas[fgt].goalbmi+' BMI</span>\
+        <span> Currently at <span id="'+fgt+'-currentweight"></span> BMI</span>\
         </div>\
         <div class="playa-chart" id="'+fgt+'-chart"></div>\
         </li>');
@@ -65,8 +72,8 @@ $(function(){
 
     for (var nm in playaData){
       // update lossed data
-      $('#'+nm+'-weightlossed').text((playas[nm].startweight - playaData[nm].currentweight).toFixed(2));
-      $('#'+nm+'-currentweight').text(playaData[nm].currentweight);
+      //$('#'+nm+'-weightlossed').text((playas[nm].startweight - playaData[nm].currentweight).toFixed(2));
+      $('#'+nm+'-currentweight').text(playaData[nm].currentbmi);
 
       //console.log(nm);
       //console.log($('#'+nm+'-chart'));
@@ -87,13 +94,13 @@ $(function(){
         },
         yAxis: {
           title: {
-            text: "Pounds"
+            text: "BMI"
           },
-          min:120
+          min:10
         },
         tooltip: {
           headerFormat: '',
-          valueSuffix: 'lbs'
+          valueSuffix: ''
         },
         series: [{
             name: playaData[nm].name,
@@ -117,15 +124,17 @@ $(function(){
     $.each(tmpColumns, function(ind, obj){
       var nm = obj[0].replace(/\W/g, '').toLowerCase();
       playaData[nm] = {
-        weightdata:[playas[nm].startweight],
+        weightdata:[playas[nm].startbmi],
         name: obj[0],
-        currentweight: playas[nm].startweight
+        currentweight: playas[nm].startbmi,
+        currentbmi: playas[nm].startbmi
       };
       //$('#playa-charts').append('<div id="'+nm+'-chart"></div>');
       $.each(obj, function(inx,oj){
-        if (0 == inx) return;
-        if (undefined == oj) return false;
+        if (0 === inx) return;
+        if ("undefined" === typeof oj) return false;
         playaData[nm].currentweight = oj;
+        playaData[nm].currentbmi = oj;
         playaData[nm].weightdata.push(oj);
       });
     });
@@ -154,7 +163,7 @@ $(function(){
       },
       yAxis: {
         title: {
-          text: "Pounds"
+          text: "BMI"
         },
         min:100
       },
