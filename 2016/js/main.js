@@ -21,7 +21,7 @@ $(function(){
         goalweight: obj[4],
         img: nm + '.jpg',
         name: obj[0].replace(/\*/g, ''),
-        weightdata:[obj[2]],
+        weightdata:[parseInt(obj[2])],
         currentweight: obj[5],
         height: obj[18],
         startbmi: convertToBMI(obj[2], obj[18]),
@@ -89,7 +89,6 @@ $(function(){
   var parseIndividualData = function(columns) {
     dateArray = columns[0].slice();
     dateArray.splice(0,1);
-    console.log(dateArray);
     //dateArray.unshift(1466035200000); // add Jan 20 - initial weigh in
     var tmpColumns = columns.slice();
     tmpColumns.splice(0,1);
@@ -98,19 +97,19 @@ $(function(){
     $.each(tmpColumns, function(ind, obj) {
       var nm = obj[0].replace(/\W/g, '').toLowerCase();
       playaData[nm] = {
-        weightdata:[playas[nm].startbmi],
+        weightdata:[parseInt(playas[nm].startbmi)],
         name: obj[0],
-        currentweight: playas[nm].startweight,
-        currentbmi: playas[nm].startbmi
+        currentweight: parseInt(playas[nm].startweight),
+        currentbmi: parseInt(playas[nm].startbmi)
       };
       //$('#playa-charts').append('<div id="'+nm+'-chart"></div>');
       $.each(obj, function(inx,oj){
         if (0 === inx) return;
         if ("undefined" === typeof oj) return false;
+        if ("0" == oj) return false;
         playaData[nm].currentweight = oj;
-        var curBMI = convertToBMI(oj, playas[nm].height);
-        playaData[nm].currentbmi = curBMI;
-        playaData[nm].weightdata.push(curBMI);
+        playaData[nm].currentbmi = oj;
+        playaData[nm].weightdata.push(oj);
       });
     });
 
@@ -155,7 +154,7 @@ $(function(){
 
 
 
-  fartscroll();
+  //fartscroll();
 
   // var highchartsOptions = Highcharts.setOptions(Highcharts.theme = {
   //    colors: ['#058DC7', '#eaab1d']
